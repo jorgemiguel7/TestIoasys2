@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/loginIoasysImage"
+            android:layout_width="184dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="62dp"
+            android:src="@drawable/logo_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/loginWelcomeIoasysText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="106dp"
+            android:text="@string/login_welcome_ioasys"
+            android:textAlignment="center"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginIoasysImage" />
+
+        <TextView
+            android:id="@+id/loginDescriptionIoasysText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
+            android:text="@string/login_description_ioasys"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginWelcomeIoasysText" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginEmailTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="44dp"
+            android:textColorHint="@color/charcoal_grey"
+            app:boxStrokeColor="@color/charcoal_grey"
+            app:errorIconTint="@color/neon_red"
+            app:errorTextColor="@color/neon_red"
+            app:hintTextColor="@color/dark_beige"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginDescriptionIoasysText"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/medium_pink">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/beige"
+                android:hint="@string/login_email"
+                android:textColor="@color/charcoal_grey"
+                android:textColorHint="#616161"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginPasswordTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="44dp"
+            android:textColorHint="@color/charcoal_grey"
+            app:boxStrokeColor="@color/charcoal_grey"
+            app:errorEnabled="false"
+            app:errorIconTint="@color/neon_red"
+            app:errorTextColor="@color/neon_red"
+            app:hintTextColor="@color/dark_beige"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginEmailTextInputLayout"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/charcoal_grey"
+            app:startIconDrawable="@drawable/ic_cadeado"
+            app:startIconTint="@color/medium_pink">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/beige"
+                android:hint="@string/login_password"
+                android:inputType="textPassword|textWebPassword"
+                android:textColor="@color/charcoal_grey"
+                android:textColorHint="#616161" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginEnterButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/greeny_blue"
+            android:text="@string/login_enter"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginPasswordTextInputLayout"
+            tools:ignore="TextContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

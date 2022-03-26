@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Test Ioasys 2</string>
+
+    <!-- Login Activity -->
+    <string name="login_welcome_ioasys">BEM-VINDO AO EMPRESAS</string>
+    <string name="login_description_ioasys">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Senha</string>
+    <string name="login_enter">Entrar</string>
+    <string name="login_invalid_email">Email inválido</string>
+    <string name="login_fill_field">Preencha este campo</string>
+    <string name="login_error_message_401">Credenciais informadas são inválidas, tente novamente.</string>
+    <string name="login_server_connection_problems">Problemas de conexão com o servidor!</string>
+    <string name="login_internet_connection_failure">Sem conexão com a internet!</string>
+</resources>
