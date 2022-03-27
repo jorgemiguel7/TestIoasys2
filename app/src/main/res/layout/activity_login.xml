@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".LoginActivity">
+    tools:context=".presentation.login.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/beige"
                 android:hint="@string/login_password"
-                android:inputType="textPassword|textWebPassword"
+                android:inputType="numberPassword"
                 android:textColor="@color/charcoal_grey"
                 android:textColorHint="#616161" />
         </com.google.android.material.textfield.TextInputLayout>

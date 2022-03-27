@@ -3,7 +3,7 @@
     <style name="Theme.TestIoasys2" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/dark_beige</item>
+        <item name="colorPrimaryVariant">@color/black_pink</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -19,5 +19,9 @@
 
     <style name="MyTextView">
         <item name="android:textColor">@color/charcoal_grey</item>
+    </style>
+
+    <style name="Theme_search_screen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimaryVariant">@color/medium_pink</item>
     </style>
 </resources>
