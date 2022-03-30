@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.testioasys2.databinding.ActivityDetailsBinding
 import com.example.testioasys2.presentation.base.BaseActivity
 import com.example.testioasys2.utils.Constants
+import com.google.android.material.snackbar.Snackbar
 
 class DetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailsBinding

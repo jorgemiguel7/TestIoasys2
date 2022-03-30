@@ -12,6 +12,7 @@
     <string name="login_error_message_401">Credenciais informadas são inválidas, tente novamente.</string>
     <string name="login_server_connection_problems">Problemas de conexão com o servidor</string>
     <string name="login_internet_connection_failure">Sem conexão com a internet</string>
+    <string name="login_ok">Ok</string>
 
     <!-- Main Activity -->
     <string name="main_search">Pesquisar</string>
