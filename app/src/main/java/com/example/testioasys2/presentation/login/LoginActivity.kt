@@ -9,7 +9,7 @@ import com.example.testioasys2.databinding.ActivityLoginBinding
 import com.example.testioasys2.presentation.main.MainActivity
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.utils.LoadingDialog
-import com.example.testioasys2.utils.UserSession
+import com.example.testioasys2.data.UserSession
 import com.example.testioasys2.utils.Validator
 import com.example.testioasys2.viewModel.login.LoginViewModel
 

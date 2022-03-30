@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestIoasys2">
         <activity
+            android:name=".presentation.details.DetailsActivity"
+            android:parentActivityName=".presentation.main.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.main.MainActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".presentation.login.LoginActivity"

@@ -10,6 +10,24 @@
     <string name="login_invalid_email">Email inválido</string>
     <string name="login_fill_field">Preencha este campo</string>
     <string name="login_error_message_401">Credenciais informadas são inválidas, tente novamente.</string>
-    <string name="login_server_connection_problems">Problemas de conexão com o servidor!</string>
-    <string name="login_internet_connection_failure">Sem conexão com a internet!</string>
+    <string name="login_server_connection_problems">Problemas de conexão com o servidor</string>
+    <string name="login_internet_connection_failure">Sem conexão com a internet</string>
+
+    <!-- Main Activity -->
+    <string name="main_search">Pesquisar</string>
+    <string name="main_guidance_message">Clique na busca para iniciar.</string>
+    <string name="main_http_401_Unauthorized">HTTP 401 Unauthorized</string>
+    <string name="main_error_connecting_to_server">Erro ao conectar ao servidor</string>
+    <string name="main_internet_connection_failure">Sem conexão com a internet</string>
+    <string name="main_search_not_found">Nenhuma empresa foi encontrada para a busca realizada.</string>
+    <string name="main_error">ERRO</string>
+
+    <!-- Item Enterprise Layout -->
+    <string name="item_enterprise_name">Empresa</string>
+    <string name="item_enterprise_type">Negócio</string>
+    <string name="item_enterprise_country">País</string>
+
+    <!-- Details Activity -->
+    <string name="details_description">description</string>
+
 </resources>

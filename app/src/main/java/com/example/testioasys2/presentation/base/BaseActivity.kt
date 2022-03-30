@@ -5,10 +5,10 @@ import androidx.appcompat.widget.Toolbar
 
 open class BaseActivity: AppCompatActivity() {
 
-    protected fun setupToolbar(toolbar: Toolbar, titleIdRes: Int, showBackButton: Boolean = false){
+    protected fun setupToolbar(toolbar: Toolbar, title: String, showBackButton: Boolean = false){
         with(toolbar){
             removeAllViews()
-            setTitle(titleIdRes)
+            setTitle(title)
         }
         setSupportActionBar(toolbar)
         if (showBackButton) supportActionBar?.setDisplayHomeAsUpEnabled(true)

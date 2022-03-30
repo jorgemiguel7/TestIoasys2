@@ -12,6 +12,7 @@ import okhttp3.Headers
 class LoginViewModel(private val dataSource: LoginRepository): ViewModel(){
     val success = MutableLiveData<Headers>()
     val errorMessage = MutableLiveData<Int>()
+
     fun login(userRequest: UserRequest){
         dataSource.doLogin(userRequest){ loginStatus: LoginStatus ->
             when(loginStatus){

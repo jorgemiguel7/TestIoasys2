@@ -14,5 +14,7 @@
     <color name="black_pink">#B5254B</color>
     <color name="greeny_blue">#57bbbc</color>
     <color name="neon_red">#ff0f44</color>
+    <color name="dark_indigo">#1a0e49</color>
+    <color name="warm_grey">#8d8c8c</color>
 
 </resources>

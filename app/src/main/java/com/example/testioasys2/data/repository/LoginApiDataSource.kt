@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class LoginApiDataSource: LoginRepository {
     override fun doLogin(userRequest: UserRequest, access: (loginStatus: LoginStatus) -> Unit) {
-        APIService.service.login(userRequest).enqueue(object : Callback<ResponseBody>{
+        APIService.service.dologin(userRequest).enqueue(object : Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 when{
                     response.isSuccessful ->{
