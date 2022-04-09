@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testioasys2.R
 import com.example.testioasys2.data.model.UserRequest
-import com.example.testioasys2.data.repository.LoginApiDataSource
+import com.example.testioasys2.data.dataSource.LoginApiDataSource
 import com.example.testioasys2.databinding.ActivityLoginBinding
 import com.example.testioasys2.presentation.main.MainActivity
 import com.example.testioasys2.utils.Constants

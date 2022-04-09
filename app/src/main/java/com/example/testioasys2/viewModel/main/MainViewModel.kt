@@ -5,12 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.testioasys2.R
 import com.example.testioasys2.data.EnterpriseStatus
+import com.example.testioasys2.data.model.Enterprise
 import com.example.testioasys2.data.repository.EnterpriseRepository
-import com.example.testioasys2.data.response.EnterpriseDataResponse
-import com.example.testioasys2.viewModel.login.LoginViewModel
 
 class MainViewModel(private val dataSource: EnterpriseRepository): ViewModel() {
-    val success = MutableLiveData<List<EnterpriseDataResponse>>()
+    val success = MutableLiveData<List<Enterprise>>()
     val errorMessage = MutableLiveData<Int>()
 
     fun getEnterprise(name: String?){

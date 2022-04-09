@@ -1,8 +1,9 @@
-package com.example.testioasys2.data.repository
+package com.example.testioasys2.data.dataSource
 
 import com.example.testioasys2.data.APIService
 import com.example.testioasys2.data.LoginStatus
 import com.example.testioasys2.data.model.UserRequest
+import com.example.testioasys2.data.repository.LoginRepository
 import okhttp3.Headers
 import okhttp3.ResponseBody
 import retrofit2.Call

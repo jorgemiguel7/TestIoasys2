@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/beige"
                 android:hint="@string/login_email"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/charcoal_grey"
                 android:textColorHint="#616161"
                 android:textSize="16sp" />

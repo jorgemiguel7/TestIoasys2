@@ -5,13 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.testioasys2.data.response.EnterpriseDataResponse
+import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.data.response.EnterpriseResponse
 import com.example.testioasys2.databinding.ItemEnterpriseBinding
 import com.example.testioasys2.utils.Constants
 
 class EnterpriseListAdapter(
-    private val enterprises: List<EnterpriseDataResponse>,
-    val onItemClickListener: ((enterprise: EnterpriseDataResponse) -> Unit)
+    private val enterprises: List<Enterprise>,
+    val onItemClickListener: ((enterprise: Enterprise) -> Unit)
     ): RecyclerView.Adapter<EnterpriseListAdapter.EnterpriseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EnterpriseViewHolder {
@@ -27,18 +28,18 @@ class EnterpriseListAdapter(
 
     class EnterpriseViewHolder(
         binding: ItemEnterpriseBinding,
-        private val onItemClickListener: (enterprise: EnterpriseDataResponse) -> Unit
+        private val onItemClickListener: (enterprise: Enterprise) -> Unit
     ) : RecyclerView.ViewHolder(binding.root){
         private val image = binding.itemEnterpriseImage
         private val name = binding.itemEnterpriseNameText
         private val type = binding.itemEnterpriseTypeText
         private val city = binding.itemEnterpriseCity
 
-        fun bindView(enterprise: EnterpriseDataResponse){
+        fun bindView(enterprise: Enterprise){
             Glide.with(this.itemView).load(Constants.PHOTO_BASE_URL.plus(enterprise.photo))
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(image)
             name.text = enterprise.name
-            type.text = enterprise.type.typeName
+            type.text = enterprise.type
             city.text = enterprise.city
 
             itemView.setOnClickListener {

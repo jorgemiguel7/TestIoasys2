@@ -12,8 +12,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testioasys2.R
-import com.example.testioasys2.data.repository.EnterpriseApiDataSource
-import com.example.testioasys2.data.response.EnterpriseDataResponse
+import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.data.dataSource.EnterpriseApiDataSource
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter
 import com.example.testioasys2.presentation.details.DetailsActivity
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun displaySearchResult(enterprises: List<EnterpriseDataResponse>) = binding.apply {
+    private fun displaySearchResult(enterprises: List<Enterprise>) = binding.apply {
         if (enterprises.isNotEmpty()){
             mainGuidanceMessage.isGone = true
             mainRecyclerView.isVisible = true
