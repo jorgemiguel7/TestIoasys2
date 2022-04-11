@@ -2,7 +2,6 @@ package com.example.testioasys2.viewModel.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.testioasys2.R
 import com.example.testioasys2.data.LoginStatus
 import com.example.testioasys2.data.model.UserRequest
@@ -31,15 +30,5 @@ class LoginViewModel(private val dataSource: LoginRepository): ViewModel(){
                 }
             }
         }
-    }
-
-    class ViewModelFactory(private val dataSource: LoginRepository):ViewModelProvider.Factory{
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if(modelClass.isAssignableFrom(LoginViewModel::class.java)){
-                return LoginViewModel(dataSource) as T
-            }
-            throw IllegalArgumentException("Unknown ViewlModel class")
-        }
-
     }
 }

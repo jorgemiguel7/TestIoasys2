@@ -1,6 +1,7 @@
 package com.example.testioasys2
 
 import android.app.Application
+import com.example.testioasys2.di.loginModule
 import com.example.testioasys2.di.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,7 +14,7 @@ class App: Application() {
         startKoin {
             androidContext(this@App)
 
-            modules(mainModule)
+            modules(loginModule, mainModule)
         }
     }
 }

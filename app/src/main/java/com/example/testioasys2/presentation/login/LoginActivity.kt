@@ -4,29 +4,26 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testioasys2.R
+import com.example.testioasys2.data.UserSession
 import com.example.testioasys2.data.model.UserRequest
-import com.example.testioasys2.data.dataSource.LoginApiDataSource
 import com.example.testioasys2.databinding.ActivityLoginBinding
 import com.example.testioasys2.presentation.main.MainActivity
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.utils.LoadingDialog
-import com.example.testioasys2.data.UserSession
 import com.example.testioasys2.utils.Validator
 import com.example.testioasys2.viewModel.login.LoginViewModel
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = LoginViewModel.ViewModelFactory(LoginApiDataSource())
-            .create(LoginViewModel::class.java)
 
         observer()
         toSend()
