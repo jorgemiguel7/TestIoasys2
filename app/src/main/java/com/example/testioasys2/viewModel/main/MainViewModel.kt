@@ -2,7 +2,6 @@ package com.example.testioasys2.viewModel.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.testioasys2.R
 import com.example.testioasys2.data.EnterpriseStatus
 import com.example.testioasys2.data.model.Enterprise
@@ -29,15 +28,6 @@ class MainViewModel(private val dataSource: EnterpriseRepository): ViewModel() {
                     errorMessage.value = R.string.main_internet_connection_failure
                 }
             }
-        }
-    }
-
-    class ViewModelFactory(private val dataSource: EnterpriseRepository): ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if(modelClass.isAssignableFrom(MainViewModel::class.java)){
-                return MainViewModel(dataSource) as T
-            }
-            throw IllegalArgumentException("Unknown ViewlModel class")
         }
     }
 }

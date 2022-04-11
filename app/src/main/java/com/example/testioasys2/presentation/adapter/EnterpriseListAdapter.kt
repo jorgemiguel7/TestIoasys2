@@ -6,13 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.testioasys2.data.model.Enterprise
-import com.example.testioasys2.data.response.EnterpriseResponse
 import com.example.testioasys2.databinding.ItemEnterpriseBinding
 import com.example.testioasys2.utils.Constants
 
 class EnterpriseListAdapter(
     private val enterprises: List<Enterprise>,
-    val onItemClickListener: ((enterprise: Enterprise) -> Unit)
+    private val onItemClickListener: ((enterprise: Enterprise) -> Unit)
     ): RecyclerView.Adapter<EnterpriseListAdapter.EnterpriseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EnterpriseViewHolder {

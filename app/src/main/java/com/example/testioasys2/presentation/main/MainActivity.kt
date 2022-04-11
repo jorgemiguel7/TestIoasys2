@@ -13,17 +13,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testioasys2.R
 import com.example.testioasys2.data.model.Enterprise
-import com.example.testioasys2.data.dataSource.EnterpriseApiDataSource
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter
 import com.example.testioasys2.presentation.details.DetailsActivity
 import com.example.testioasys2.utils.AlertMessage
 import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.viewModel.main.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setToolbar()
-        viewModel = MainViewModel.ViewModelFactory(EnterpriseApiDataSource())
-            .create(MainViewModel::class.java)
         setRecyclerView()
         connectionError()
     }
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         searchInActionBar(menu)
         return true
