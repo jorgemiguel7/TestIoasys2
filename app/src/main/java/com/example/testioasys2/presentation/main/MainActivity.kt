@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                mainGuidanceMessage.isGone = true
+                mainGuidanceMessageTextView.isGone = true
                 if (newText!!.isNotEmpty()){
                     LoadingDialog.startLoading(this@MainActivity)
                     viewModel.getEnterprise(newText)
@@ -94,12 +94,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun displaySearchResult(enterprises: List<Enterprise>) = binding.apply {
         if (enterprises.isNotEmpty()){
-            mainGuidanceMessage.isGone = true
+            mainGuidanceMessageTextView.isGone = true
             mainRecyclerView.isVisible = true
         } else {
             mainRecyclerView.isGone = true
-            mainGuidanceMessage.text = getString(R.string.main_search_not_found)
-            mainGuidanceMessage.isVisible = true
+            mainGuidanceMessageTextView.text = getString(R.string.main_search_not_found)
+            mainGuidanceMessageTextView.isVisible = true
         }
     }
 

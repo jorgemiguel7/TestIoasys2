@@ -15,7 +15,7 @@
             layout="@layout/include_toolbar" />
 
         <ImageView
-            android:id="@+id/details_photo"
+            android:id="@+id/detailsPhoto"
             android:layout_width="318dp"
             android:layout_height="155dp"
             android:layout_marginTop="20dp"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_photo"
+            app:layout_constraintTop_toBottomOf="@+id/detailsPhoto"
             tools:text="@string/details_description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

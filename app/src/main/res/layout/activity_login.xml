@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/loginIoasysImage"
+            android:id="@+id/loginIoasysImageView"
             android:layout_width="184dp"
             android:layout_height="46dp"
             android:layout_marginTop="62dp"
@@ -23,7 +23,7 @@
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <TextView
-            android:id="@+id/loginWelcomeIoasysText"
+            android:id="@+id/loginWelcomeIoasysTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="106dp"
@@ -36,10 +36,10 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginIoasysImage" />
+            app:layout_constraintTop_toBottomOf="@+id/loginIoasysImageView" />
 
         <TextView
-            android:id="@+id/loginDescriptionIoasysText"
+            android:id="@+id/loginDescriptionIoasysTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
@@ -50,7 +50,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginWelcomeIoasysText" />
+            app:layout_constraintTop_toBottomOf="@+id/loginWelcomeIoasysTextView" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/loginEmailTextInputLayout"
@@ -66,7 +66,7 @@
             app:hintTextColor="@color/dark_beige"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginDescriptionIoasysText"
+            app:layout_constraintTop_toBottomOf="@+id/loginDescriptionIoasysTextView"
             app:startIconDrawable="@drawable/ic_email"
             app:startIconTint="@color/medium_pink">
 

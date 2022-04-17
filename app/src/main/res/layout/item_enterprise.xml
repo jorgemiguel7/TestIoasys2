@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:elevation="2dp">
 
     <ImageView
-        android:id="@+id/itemEnterpriseImage"
+        android:id="@+id/itemEnterpriseImageView"
         android:layout_width="106dp"
         android:layout_height="80dp"
         android:layout_marginStart="12dp"
@@ -22,7 +23,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/itemEnterpriseNameText"
+        android:id="@+id/itemEnterpriseNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -35,12 +36,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImage"
+        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/item_enterprise_name" />
 
     <TextView
-        android:id="@+id/itemEnterpriseTypeText"
+        android:id="@+id/itemEnterpriseTypeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -50,12 +51,12 @@
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImage"
-        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameText"
+        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
+        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameTextView"
         tools:text="@string/item_enterprise_type" />
 
     <TextView
-        android:id="@+id/item_enterprise_city"
+        android:id="@+id/itemEnterpriseCityTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -64,7 +65,7 @@
         android:textColor="#757575"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImage"
-        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeText"
+        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
+        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeTextView"
         tools:text="@string/item_enterprise_country" />
 </androidx.constraintlayout.widget.ConstraintLayout>
