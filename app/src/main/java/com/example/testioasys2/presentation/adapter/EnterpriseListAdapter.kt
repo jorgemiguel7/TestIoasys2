@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.databinding.ItemEnterpriseBinding
 import com.example.testioasys2.utils.Constants
 

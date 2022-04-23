@@ -1,4 +1,4 @@
-package com.example.testioasys2.data
+package com.example.testioasys2.domain.model
 
 import java.io.Serializable
 

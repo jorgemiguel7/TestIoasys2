@@ -5,9 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testioasys2.R
-import com.example.testioasys2.data.UserSession
+import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.data.model.*
-import com.example.testioasys2.data.repository.LoginRepository
+import com.example.testioasys2.domain.model.EmailStatus
+import com.example.testioasys2.domain.model.User
+import com.example.testioasys2.domain.repository.LoginRepository
+import com.example.testioasys2.domain.result.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext

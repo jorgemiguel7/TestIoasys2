@@ -16,11 +16,12 @@
             android:layout_width="184dp"
             android:layout_height="46dp"
             android:layout_marginTop="62dp"
+            android:importantForAccessibility="auto"
             android:src="@drawable/logo_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
+            android:contentDescription="@string/ioasys_logo" />
 
         <TextView
             android:id="@+id/loginWelcomeIoasysTextView"

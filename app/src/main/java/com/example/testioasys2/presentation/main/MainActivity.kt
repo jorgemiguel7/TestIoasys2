@@ -12,8 +12,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testioasys2.R
-import com.example.testioasys2.data.UserSession
-import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.domain.model.UserSession
+import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.data.model.NetworkErrorException
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter

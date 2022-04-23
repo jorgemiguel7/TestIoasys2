@@ -1,8 +1,8 @@
 package com.example.testioasys2.di
 
-import com.example.testioasys2.data.dataSource.EnterpriseApiDataSourceImpl
-import com.example.testioasys2.data.dataSource.remote.model.EnterpriseApiDataSource
-import com.example.testioasys2.data.repository.EnterpriseRepository
+import com.example.testioasys2.data.remote.enterprise.dataSource.EnterpriseApiDataSourceImpl
+import com.example.testioasys2.data.remote.enterprise.dataSource.EnterpriseApiDataSource
+import com.example.testioasys2.domain.repository.EnterpriseRepository
 import com.example.testioasys2.data.repository.EnterpriseRepositoryImpl
 import com.example.testioasys2.data.rest.EnterpriseService
 import com.example.testioasys2.utils.Constants

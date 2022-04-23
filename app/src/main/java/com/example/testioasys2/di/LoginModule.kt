@@ -1,8 +1,8 @@
 package com.example.testioasys2.di
 
-import com.example.testioasys2.data.dataSource.LoginApiDataSource
-import com.example.testioasys2.data.dataSource.LoginApiDataSourceImpl
-import com.example.testioasys2.data.repository.LoginRepository
+import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSource
+import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSourceImpl
+import com.example.testioasys2.domain.repository.LoginRepository
 import com.example.testioasys2.data.repository.LoginRepositoryImpl
 import com.example.testioasys2.data.rest.LoginService
 import com.example.testioasys2.utils.Constants

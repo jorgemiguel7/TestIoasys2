@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.example.testioasys2.R
-import com.example.testioasys2.data.model.User
+import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.databinding.ActivityLoginBinding
 import com.example.testioasys2.presentation.main.MainActivity
 import com.example.testioasys2.utils.LoadingDialog

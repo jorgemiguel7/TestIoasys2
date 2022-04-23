@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.model
+package com.example.testioasys2.domain.enterprise
 
 data class Enterprise(
     val name: String,

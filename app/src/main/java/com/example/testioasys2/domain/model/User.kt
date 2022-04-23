@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.model
+package com.example.testioasys2.domain.model
 
 import android.util.Patterns
 
@@ -6,7 +6,7 @@ data class User(
     val email: String,
     val password: String
 ){
-    fun validateEmail(): EmailStatus{
+    fun validateEmail(): EmailStatus {
         return when{
             email.isEmpty() || email.isBlank() -> EmailStatus.BLANK
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> EmailStatus.INVALID

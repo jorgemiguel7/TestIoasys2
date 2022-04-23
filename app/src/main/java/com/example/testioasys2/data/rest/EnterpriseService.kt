@@ -1,6 +1,6 @@
 package com.example.testioasys2.data.rest
 
-import com.example.testioasys2.data.response.EnterpriseResultResponse
+import com.example.testioasys2.data.remote.enterprise.model.EnterpriseResultResponse
 import com.example.testioasys2.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Header

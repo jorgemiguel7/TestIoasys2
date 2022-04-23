@@ -1,9 +1,12 @@
-package com.example.testioasys2.data.dataSource
+package com.example.testioasys2.data.remote.login.dataSource
 
-import com.example.testioasys2.data.UserSession
+import com.example.testioasys2.domain.model.UserSession
+import com.example.testioasys2.data.remote.login.model.UserRequest
 import com.example.testioasys2.data.model.*
 import com.example.testioasys2.data.rest.LoginService
 import com.example.testioasys2.data.rest.retrofitWrapper
+import com.example.testioasys2.domain.model.User
+import com.example.testioasys2.domain.result.Result
 import com.example.testioasys2.utils.Constants.ACCESS_TOKEN
 import com.example.testioasys2.utils.Constants.CLIENT
 import com.example.testioasys2.utils.Constants.UID

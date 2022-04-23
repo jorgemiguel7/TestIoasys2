@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.testioasys2.data.UserSession
-import com.example.testioasys2.data.model.Enterprise
-import com.example.testioasys2.data.model.Result
-import com.example.testioasys2.data.repository.EnterpriseRepository
+import com.example.testioasys2.domain.model.UserSession
+import com.example.testioasys2.domain.enterprise.Enterprise
+import com.example.testioasys2.domain.result.Result
+import com.example.testioasys2.domain.repository.EnterpriseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext

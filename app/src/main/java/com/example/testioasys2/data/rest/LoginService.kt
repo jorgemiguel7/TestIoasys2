@@ -1,8 +1,7 @@
 package com.example.testioasys2.data.rest
 
-import com.example.testioasys2.data.model.UserRequest
+import com.example.testioasys2.data.remote.login.model.UserRequest
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

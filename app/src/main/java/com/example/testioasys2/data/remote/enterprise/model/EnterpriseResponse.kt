@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.response
+package com.example.testioasys2.data.remote.enterprise.model
 
 import com.google.gson.annotations.SerializedName
 
