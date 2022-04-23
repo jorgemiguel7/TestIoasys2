@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/loginEmailTextInputLayout"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/charcoal_grey"
-            app:startIconDrawable="@drawable/ic_cadeado"
+            app:startIconDrawable="@drawable/ic_padlock"
             app:startIconTint="@color/medium_pink">
 
             <com.google.android.material.textfield.TextInputEditText

@@ -1,34 +1,9 @@
 package com.example.testioasys2.data.dataSource
 
-import com.example.testioasys2.data.APIService
-import com.example.testioasys2.data.LoginStatus
-import com.example.testioasys2.data.model.UserRequest
-import com.example.testioasys2.data.repository.LoginRepository
-import okhttp3.Headers
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.testioasys2.data.UserSession
+import com.example.testioasys2.data.model.Result
+import com.example.testioasys2.data.model.User
 
-class LoginApiDataSource: LoginRepository {
-    override fun doLogin(userRequest: UserRequest, access: (loginStatus: LoginStatus) -> Unit) {
-        APIService.service.dologin(userRequest).enqueue(object : Callback<ResponseBody>{
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                when{
-                    response.isSuccessful ->{
-                        val headers: Headers = response.headers()
-
-                        access.invoke(LoginStatus.Success(headers))
-                    }
-                    else ->{
-                        access.invoke(LoginStatus.ApiError(response.code()))
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                access.invoke(LoginStatus.ServerError)
-            }
-        })
-    }
+interface LoginApiDataSource {
+    suspend fun doLogin(user: User):Result<UserSession>
 }

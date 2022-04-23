@@ -12,12 +12,14 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testioasys2.R
+import com.example.testioasys2.data.UserSession
 import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.data.model.NetworkErrorException
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter
 import com.example.testioasys2.presentation.details.DetailsActivity
-import com.example.testioasys2.utils.AlertMessage
 import com.example.testioasys2.utils.LoadingDialog
+import com.example.testioasys2.utils.showAlertDialog
 import com.example.testioasys2.viewModel.main.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -36,8 +38,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
-        fun getStartIntent(context: Context): Intent{
-            return Intent(context, MainActivity::class.java)
+        private const val USER_SESSION_EXTRA = "USER_SESSION_EXTRA"
+
+        fun getStartIntent(context: Context, userSession: UserSession): Intent{
+            return Intent(context, MainActivity::class.java).putExtra(USER_SESSION_EXTRA, userSession)
         }
     }
 
@@ -63,16 +67,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                mainGuidanceMessageTextView.isGone = true
-                if (newText!!.isNotEmpty()){
-                    LoadingDialog.startLoading(this@MainActivity)
-                    viewModel.getEnterprise(newText)
-                } else {
-                    mainRecyclerView.isGone = true
-                }
+                getEnterpriseList(newText.orEmpty())
                 return false
             }
         })
+    }
+
+    private fun getEnterpriseList(newText: String) = binding.apply{
+        if (newText.isNotEmpty()){
+            mainGuidanceMessageTextView.isGone = true
+            mainRecyclerView.isVisible = true
+            val accessToken = intent.getSerializableExtra(USER_SESSION_EXTRA) as UserSession
+            viewModel.getEnterprise(newText, userSession = accessToken)
+        } else mainRecyclerView.isGone = true
+
     }
 
     private fun setRecyclerView() = binding.apply{
@@ -86,9 +94,13 @@ class MainActivity : AppCompatActivity() {
                         val intent = DetailsActivity.getStratIntent(this@MainActivity, enterprise.name, enterprise.photo, enterprise.description)
                         startActivity(intent)
                     }
-                    LoadingDialog.finishLoading()
                 }
             }
+        }
+
+        viewModel.loading.observe(this@MainActivity){ isLoading ->
+            if (isLoading) LoadingDialog.startLoading(this@MainActivity)
+            else LoadingDialog.finishLoading()
         }
     }
 
@@ -103,11 +115,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun connectionError(){
-        viewModel.errorMessage.observe(this){
-            it?.let { message ->
-                LoadingDialog.finishLoading()
-                AlertMessage.showAlertDialog(this, message)
+    private fun connectionError() = binding.apply{
+        viewModel.errorMessage.observe(this@MainActivity){ exception ->
+            when(exception){
+                is NetworkErrorException -> showAlertDialog(this@MainActivity, R.string.internet_connection_failure)
+                else -> showAlertDialog(this@MainActivity, R.string.internet_connection_failure)
             }
         }
     }
