@@ -29,10 +29,10 @@ class EnterpriseListAdapter(
         binding: ItemEnterpriseBinding,
         private val onItemClickListener: (enterprise: Enterprise) -> Unit
     ) : RecyclerView.ViewHolder(binding.root){
-        private val image = binding.itemEnterpriseImage
-        private val name = binding.itemEnterpriseNameText
-        private val type = binding.itemEnterpriseTypeText
-        private val city = binding.itemEnterpriseCity
+        private val image = binding.itemEnterpriseImageView
+        private val name = binding.itemEnterpriseNameTextView
+        private val type = binding.itemEnterpriseTypeTextView
+        private val city = binding.itemEnterpriseCityTextView
 
         fun bindView(enterprise: Enterprise){
             Glide.with(this.itemView).load(Constants.PHOTO_BASE_URL.plus(enterprise.photo))

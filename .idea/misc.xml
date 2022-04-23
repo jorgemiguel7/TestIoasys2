@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/drawable/gradient_background.xml" value="0.1945" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2115" />
+        <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/drawable/ic_cadeado.xml" value="0.1945" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/drawable/ic_email.xml" value="0.1945" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/drawable/ic_search.xml" value="0.1945" />
+        <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/layout/activity_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/layout/activity_enterprise_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/jorge/AndroidStudioProjects/TestIoasys2/app/src/main/res/layout/activity_main.xml" value="0.25" />

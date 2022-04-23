@@ -1,31 +1,39 @@
 package com.example.testioasys2.viewModel.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.testioasys2.R
-import com.example.testioasys2.data.EnterpriseStatus
+import androidx.lifecycle.viewModelScope
+import com.example.testioasys2.data.UserSession
 import com.example.testioasys2.data.model.Enterprise
+import com.example.testioasys2.data.model.Result
 import com.example.testioasys2.data.repository.EnterpriseRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class MainViewModel(private val dataSource: EnterpriseRepository): ViewModel() {
-    val success = MutableLiveData<List<Enterprise>>()
-    val errorMessage = MutableLiveData<Int>()
+class MainViewModel(
+    private val enterpriseRepository: EnterpriseRepository,
+    private val dispatcher: CoroutineContext = Dispatchers.IO
+): ViewModel() {
+    private val _success = MutableLiveData<List<Enterprise>>()
+    val success: LiveData<List<Enterprise>> = _success
+    private val _errorMessage = MutableLiveData<Throwable>()
+    val errorMessage: LiveData<Throwable> = _errorMessage
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
 
-    fun getEnterprise(name: String?){
-        dataSource.getEnterprises(name){ enterpriseStatus: EnterpriseStatus ->
-            when(enterpriseStatus){
-                is EnterpriseStatus.Success ->{
-                    success.value = enterpriseStatus.enterprises
+    fun getEnterprise(name: String?, userSession: UserSession){
+        viewModelScope.launch(dispatcher) {
+            _loading.postValue(true)
+            when(val result = enterpriseRepository.getEnterprises(name, userSession)){
+                is Result.Success -> {
+                    _loading.postValue(false)
+                    _success.postValue(result.data)
                 }
-                is EnterpriseStatus.ApiError ->{
-                    if (enterpriseStatus.statusCode == 401){
-                        errorMessage.value = R.string.main_http_401_Unauthorized
-                    } else {
-                        errorMessage.value = R.string.main_error_connecting_to_server
-                    }
-                }
-                is EnterpriseStatus.ServerError ->{
-                    errorMessage.value = R.string.main_internet_connection_failure
+                is Result.Error -> {
+                    _loading.postValue(false)
+                    _errorMessage.postValue(result.exception)
                 }
             }
         }
