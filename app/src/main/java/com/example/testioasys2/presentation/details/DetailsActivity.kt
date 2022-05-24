@@ -22,7 +22,7 @@ class DetailsActivity : BaseActivity() {
     }
 
     companion object{
-        private const val EXTRA_NAME = "EXTR_NAME"
+        private const val EXTRA_NAME = "EXTRA_NAME"
         private const val EXTRA_PHOTO = "EXTRA_PHOTO"
         private const val EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION"
 

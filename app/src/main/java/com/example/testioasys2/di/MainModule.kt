@@ -6,7 +6,7 @@ import com.example.testioasys2.domain.repository.EnterpriseRepository
 import com.example.testioasys2.data.repository.EnterpriseRepositoryImpl
 import com.example.testioasys2.data.rest.EnterpriseService
 import com.example.testioasys2.utils.Constants
-import com.example.testioasys2.viewModel.main.MainViewModel
+import com.example.testioasys2.presentation.viewModel.main.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel

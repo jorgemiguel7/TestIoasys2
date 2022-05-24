@@ -9,7 +9,7 @@ import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.databinding.ActivityLoginBinding
 import com.example.testioasys2.presentation.main.MainActivity
 import com.example.testioasys2.utils.LoadingDialog
-import com.example.testioasys2.viewModel.login.LoginViewModel
+import com.example.testioasys2.presentation.viewModel.login.LoginViewModel
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel

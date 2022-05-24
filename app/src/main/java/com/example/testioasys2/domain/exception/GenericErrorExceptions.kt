@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.model
+package com.example.testioasys2.domain.exception
 
 class NetworkErrorException: Exception()
 class GenericErrorException: Exception()

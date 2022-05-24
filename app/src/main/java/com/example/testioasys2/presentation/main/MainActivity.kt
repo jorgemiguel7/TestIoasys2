@@ -14,13 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testioasys2.R
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.enterprise.Enterprise
-import com.example.testioasys2.data.model.NetworkErrorException
+import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter
 import com.example.testioasys2.presentation.details.DetailsActivity
 import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.utils.showAlertDialog
-import com.example.testioasys2.viewModel.main.MainViewModel
+import com.example.testioasys2.presentation.viewModel.main.MainViewModel
+import com.example.testioasys2.utils.onQueryTextChange
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -61,16 +62,9 @@ class MainActivity : AppCompatActivity() {
         val searchView: SearchView = menuItem.actionView as SearchView
 
         searchView.queryHint = getString(R.string.main_search)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                getEnterpriseList(newText.orEmpty())
-                return false
-            }
-        })
+        searchView.onQueryTextChange {
+            getEnterpriseList(it.orEmpty())
+        }
     }
 
     private fun getEnterpriseList(newText: String) = binding.apply{
@@ -118,8 +112,8 @@ class MainActivity : AppCompatActivity() {
     private fun connectionError() = binding.apply{
         viewModel.errorMessage.observe(this@MainActivity){ exception ->
             when(exception){
-                is NetworkErrorException -> showAlertDialog(this@MainActivity, R.string.internet_connection_failure)
-                else -> showAlertDialog(this@MainActivity, R.string.internet_connection_failure)
+                is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
+                else -> showAlertDialog(R.string.internet_connection_failure)
             }
         }
     }

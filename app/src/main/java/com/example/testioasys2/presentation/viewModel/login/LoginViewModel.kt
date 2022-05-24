@@ -1,4 +1,4 @@
-package com.example.testioasys2.viewModel.login
+package com.example.testioasys2.presentation.viewModel.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testioasys2.R
 import com.example.testioasys2.domain.model.UserSession
-import com.example.testioasys2.data.model.*
+import com.example.testioasys2.domain.exception.NetworkErrorException
+import com.example.testioasys2.domain.exception.ServerErrorException
+import com.example.testioasys2.domain.exception.UnauthorizedException
 import com.example.testioasys2.domain.model.EmailStatus
 import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.domain.repository.LoginRepository

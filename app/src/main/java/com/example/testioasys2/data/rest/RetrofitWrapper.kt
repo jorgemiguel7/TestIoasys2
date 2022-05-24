@@ -1,9 +1,9 @@
 package com.example.testioasys2.data.rest
 
-import com.example.testioasys2.data.model.GenericErrorException
-import com.example.testioasys2.data.model.NetworkErrorException
+import com.example.testioasys2.domain.exception.GenericErrorException
+import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.domain.result.Result
-import com.example.testioasys2.data.model.ServerErrorException
+import com.example.testioasys2.domain.exception.ServerErrorException
 import retrofit2.HttpException
 import java.io.IOException
 
