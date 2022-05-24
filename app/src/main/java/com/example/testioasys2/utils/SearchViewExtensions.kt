@@ -12,5 +12,6 @@ fun SearchView.onQueryTextChange(text: (String?) -> Unit){
             text.invoke(newText)
             return false
         }
+
     })
 }
