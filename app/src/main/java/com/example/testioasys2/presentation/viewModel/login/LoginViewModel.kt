@@ -10,12 +10,16 @@ import com.example.testioasys2.domain.model.EmailStatus
 import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.domain.result.Result
 import com.example.testioasys2.domain.use_case.DoLogin
+import com.example.testioasys2.domain.use_case.ValidateUserEmail
+import com.example.testioasys2.domain.use_case.ValidateUserPassword
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class LoginViewModel(
     private val doLogin: DoLogin,
+    private val validateUserEmail: ValidateUserEmail,
+    private val validateUserPassword: ValidateUserPassword,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ): ViewModel(){
     private val _success = MutableLiveData<UserSession>()
@@ -58,14 +62,16 @@ class LoginViewModel(
     }
 
     private fun validatePassword(user: User): Boolean {
-        val validPassword = user.validatePassword()
+        val validPassword = validateUserPassword.call(user.password)
+//        val validPassword = user.validatePassword()
         if (validPassword) _passwordErrorMessage.postValue(null)
         else _passwordErrorMessage.postValue(R.string.login_fill_field)
         return validPassword
     }
 
     private fun validateEmail(user: User): EmailStatus {
-        val emailStatus = user.validateEmail()
+        val emailStatus = validateUserEmail.call(user.email)
+//        val emailStatus = user.validateEmail()
         when(emailStatus){
             EmailStatus.VALID -> _emailErrorMessage.postValue(null)
             EmailStatus.INVALID -> _emailErrorMessage.postValue(R.string.login_invalid_email)

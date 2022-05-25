@@ -5,8 +5,7 @@ import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSourceIm
 import com.example.testioasys2.domain.repository.login.LoginRepository
 import com.example.testioasys2.data.repository.login.LoginRepositoryImpl
 import com.example.testioasys2.data.rest.LoginService
-import com.example.testioasys2.domain.use_case.DoLogin
-import com.example.testioasys2.domain.use_case.DoLoginImpl
+import com.example.testioasys2.domain.use_case.*
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.presentation.viewModel.login.LoginViewModel
 import okhttp3.OkHttpClient
@@ -33,8 +32,10 @@ val loginModule = module {
     single <DoLogin> { DoLoginImpl(get()) }
     single <LoginRepository> { LoginRepositoryImpl(get()) }
     single <LoginApiDataSource> { LoginApiDataSourceImpl(get()) }
+    single <ValidateUserEmail> { ValidateUserEmailImpl() }
+    single <ValidateUserPassword> { ValidateUserPasswordImpl() }
 
     viewModel {
-        LoginViewModel(doLogin = get())
+        LoginViewModel(get(), get(), get())
     }
 }
