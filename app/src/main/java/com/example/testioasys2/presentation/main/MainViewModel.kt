@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.viewModel.main
+package com.example.testioasys2.presentation.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

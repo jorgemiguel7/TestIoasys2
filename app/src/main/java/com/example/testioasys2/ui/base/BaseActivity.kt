@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.base
+package com.example.testioasys2.ui.base
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar

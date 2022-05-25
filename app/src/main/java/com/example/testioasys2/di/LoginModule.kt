@@ -7,7 +7,7 @@ import com.example.testioasys2.data.repository.login.LoginRepositoryImpl
 import com.example.testioasys2.data.rest.LoginService
 import com.example.testioasys2.domain.use_case.*
 import com.example.testioasys2.utils.Constants
-import com.example.testioasys2.presentation.viewModel.login.LoginViewModel
+import com.example.testioasys2.presentation.login.LoginViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel

@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.main
+package com.example.testioasys2.ui.main
 
 import android.content.Context
 import android.content.Intent
@@ -16,11 +16,11 @@ import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.databinding.ActivityMainBinding
-import com.example.testioasys2.presentation.adapter.EnterpriseListAdapter
-import com.example.testioasys2.presentation.details.DetailsActivity
+import com.example.testioasys2.ui.adapter.EnterpriseListAdapter
+import com.example.testioasys2.ui.details.DetailsActivity
 import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.utils.showAlertDialog
-import com.example.testioasys2.presentation.viewModel.main.MainViewModel
+import com.example.testioasys2.presentation.main.MainViewModel
 import com.example.testioasys2.utils.onQueryTextChange
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

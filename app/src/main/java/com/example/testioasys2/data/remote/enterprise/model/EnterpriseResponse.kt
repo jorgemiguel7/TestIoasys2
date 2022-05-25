@@ -3,12 +3,12 @@ package com.example.testioasys2.data.remote.enterprise.model
 import com.google.gson.annotations.SerializedName
 
 data class EnterpriseResponse(
-    val id: String,
+    val id: String?,
     @SerializedName("enterprise_name")
-    val name: String,
-    val photo: String,
-    val description: String,
-    val city: String,
+    val name: String?,
+    val photo: String?,
+    val description: String?,
+    val city: String?,
     @SerializedName("enterprise_type")
-    val type: EnterpriseTypeResponse
+    val type: EnterpriseTypeResponse?
 )

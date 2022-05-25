@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.adapter
+package com.example.testioasys2.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

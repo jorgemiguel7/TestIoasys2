@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.details
+package com.example.testioasys2.ui.details
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.testioasys2.databinding.ActivityDetailsBinding
-import com.example.testioasys2.presentation.base.BaseActivity
+import com.example.testioasys2.ui.base.BaseActivity
 import com.example.testioasys2.utils.Constants
 
 class DetailsActivity : BaseActivity() {

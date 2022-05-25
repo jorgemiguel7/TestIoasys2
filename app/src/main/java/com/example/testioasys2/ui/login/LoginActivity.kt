@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.login
+package com.example.testioasys2.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,8 @@ import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.domain.exception.ServerErrorException
 import com.example.testioasys2.domain.exception.UnauthorizedException
 import com.example.testioasys2.domain.model.User
-import com.example.testioasys2.presentation.main.MainActivity
-import com.example.testioasys2.presentation.viewModel.login.LoginViewModel
+import com.example.testioasys2.ui.main.MainActivity
+import com.example.testioasys2.presentation.login.LoginViewModel
 import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.utils.showAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel

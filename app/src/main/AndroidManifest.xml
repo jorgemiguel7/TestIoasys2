@@ -12,15 +12,15 @@
         android:name=".App"
         android:theme="@style/Theme.TestIoasys2">
         <activity
-            android:name=".presentation.details.DetailsActivity"
-            android:parentActivityName=".presentation.main.MainActivity"
+            android:name="com.example.testioasys2.ui.details.DetailsActivity"
+            android:parentActivityName="com.example.testioasys2.ui.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name="com.example.testioasys2.ui.main.MainActivity"
             android:launchMode="singleTop"
             android:exported="false" />
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name="com.example.testioasys2.ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

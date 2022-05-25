@@ -1,4 +1,4 @@
-package com.example.testioasys2.presentation.viewModel.login
+package com.example.testioasys2.presentation.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -49,7 +49,7 @@ class LoginViewModel(
                     }
                     is Result.Error -> {
                         _loading.postValue(false)
-                        handleLoginErrorException(result)
+                        _errorMessage.postValue(result.exception)
                     }
                 }
             }
@@ -57,13 +57,8 @@ class LoginViewModel(
 
     }
 
-    private fun handleLoginErrorException(result: Result.Error) {
-        _errorMessage.postValue(result.exception)
-    }
-
     private fun validatePassword(user: User): Boolean {
         val validPassword = validateUserPassword.call(user.password)
-//        val validPassword = user.validatePassword()
         if (validPassword) _passwordErrorMessage.postValue(null)
         else _passwordErrorMessage.postValue(R.string.login_fill_field)
         return validPassword
@@ -71,7 +66,6 @@ class LoginViewModel(
 
     private fun validateEmail(user: User): EmailStatus {
         val emailStatus = validateUserEmail.call(user.email)
-//        val emailStatus = user.validateEmail()
         when(emailStatus){
             EmailStatus.VALID -> _emailErrorMessage.postValue(null)
             EmailStatus.INVALID -> _emailErrorMessage.postValue(R.string.login_invalid_email)

@@ -8,7 +8,7 @@ import com.example.testioasys2.data.rest.EnterpriseService
 import com.example.testioasys2.domain.use_case.GetEnterpriseList
 import com.example.testioasys2.domain.use_case.GetEnterpriseListImpl
 import com.example.testioasys2.utils.Constants
-import com.example.testioasys2.presentation.viewModel.main.MainViewModel
+import com.example.testioasys2.presentation.main.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
