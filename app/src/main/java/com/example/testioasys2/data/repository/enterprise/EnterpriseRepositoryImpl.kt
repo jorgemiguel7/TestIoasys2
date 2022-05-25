@@ -1,10 +1,10 @@
-package com.example.testioasys2.data.repository
+package com.example.testioasys2.data.repository.enterprise
 
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.data.remote.enterprise.dataSource.EnterpriseApiDataSource
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.result.Result
-import com.example.testioasys2.domain.repository.EnterpriseRepository
+import com.example.testioasys2.domain.repository.enterprise.EnterpriseRepository
 
 class EnterpriseRepositoryImpl(private val apiDataSource: EnterpriseApiDataSource):
     EnterpriseRepository {

@@ -6,25 +6,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testioasys2.R
 import com.example.testioasys2.domain.model.UserSession
-import com.example.testioasys2.domain.exception.NetworkErrorException
-import com.example.testioasys2.domain.exception.ServerErrorException
-import com.example.testioasys2.domain.exception.UnauthorizedException
 import com.example.testioasys2.domain.model.EmailStatus
 import com.example.testioasys2.domain.model.User
-import com.example.testioasys2.domain.repository.LoginRepository
 import com.example.testioasys2.domain.result.Result
+import com.example.testioasys2.domain.use_case.DoLogin
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class LoginViewModel(
-    private val loginRepository: LoginRepository,
+    private val doLogin: DoLogin,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ): ViewModel(){
     private val _success = MutableLiveData<UserSession>()
     val success: LiveData<UserSession> = _success
-    private val _errorMessage = MutableLiveData<Int>()
-    val errorMessage: LiveData<Int> = _errorMessage
+
+    private val _errorMessage = MutableLiveData<Throwable>()
+    val errorMessage: LiveData<Throwable> = _errorMessage
+
     private val _emailErrorMessage = MutableLiveData<Int?>()
     val emailErrorMessage: LiveData<Int?> = _emailErrorMessage
     private val _passwordErrorMessage = MutableLiveData<Int?>()
@@ -39,7 +38,7 @@ class LoginViewModel(
 
             if (emailStatus == EmailStatus.VALID && isPasswordValid){
                 _loading.postValue(true)
-                when(val result = loginRepository.doLogin(user)){
+                when(val result = doLogin.call(user)){
                     is Result.Success -> {
                         _loading.postValue(false)
                         _success.postValue(result.data)
@@ -55,14 +54,7 @@ class LoginViewModel(
     }
 
     private fun handleLoginErrorException(result: Result.Error) {
-        _errorMessage.postValue(
-            when(result.exception){
-                is NetworkErrorException -> R.string.internet_connection_failure
-                is ServerErrorException -> R.string.server_connection_problems
-                is UnauthorizedException -> R.string.unauthorized_error_message
-                else -> R.string.generic_failure
-            }
-        )
+        _errorMessage.postValue(result.exception)
     }
 
     private fun validatePassword(user: User): Boolean {

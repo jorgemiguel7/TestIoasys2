@@ -2,9 +2,11 @@ package com.example.testioasys2.di
 
 import com.example.testioasys2.data.remote.enterprise.dataSource.EnterpriseApiDataSourceImpl
 import com.example.testioasys2.data.remote.enterprise.dataSource.EnterpriseApiDataSource
-import com.example.testioasys2.domain.repository.EnterpriseRepository
-import com.example.testioasys2.data.repository.EnterpriseRepositoryImpl
+import com.example.testioasys2.domain.repository.enterprise.EnterpriseRepository
+import com.example.testioasys2.data.repository.enterprise.EnterpriseRepositoryImpl
 import com.example.testioasys2.data.rest.EnterpriseService
+import com.example.testioasys2.domain.use_case.GetEnterpriseList
+import com.example.testioasys2.domain.use_case.GetEnterpriseListImpl
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.presentation.viewModel.main.MainViewModel
 import okhttp3.OkHttpClient
@@ -14,7 +16,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-var mainModule = module {
+val mainModule = module {
     single<EnterpriseService> {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
@@ -28,6 +30,7 @@ var mainModule = module {
 
     }
 
+    single <GetEnterpriseList> { GetEnterpriseListImpl(get()) }
     single<EnterpriseRepository> { EnterpriseRepositoryImpl(get()) }
     single<EnterpriseApiDataSource> { EnterpriseApiDataSourceImpl(get()) }
 

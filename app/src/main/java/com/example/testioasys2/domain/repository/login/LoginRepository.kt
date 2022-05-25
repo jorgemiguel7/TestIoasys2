@@ -1,4 +1,4 @@
-package com.example.testioasys2.domain.repository
+package com.example.testioasys2.domain.repository.login
 
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.result.Result

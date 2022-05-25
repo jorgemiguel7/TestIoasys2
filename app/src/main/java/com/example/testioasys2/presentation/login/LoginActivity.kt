@@ -1,17 +1,18 @@
 package com.example.testioasys2.presentation.login
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.example.testioasys2.R
-import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.databinding.ActivityLoginBinding
+import com.example.testioasys2.domain.exception.NetworkErrorException
+import com.example.testioasys2.domain.exception.ServerErrorException
+import com.example.testioasys2.domain.exception.UnauthorizedException
+import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.presentation.main.MainActivity
-import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.presentation.viewModel.login.LoginViewModel
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
+import com.example.testioasys2.utils.LoadingDialog
+import com.example.testioasys2.utils.showAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -42,24 +43,17 @@ class LoginActivity : AppCompatActivity() {
         viewModel.success.observe(this@LoginActivity){ session ->
             val intent = MainActivity.getStartIntent(this@LoginActivity, session)
             startActivity(intent)
-//            LoadingDialog.finishLoading()
             finish()
         }
 
-        viewModel.errorMessage.observe(this@LoginActivity){
-            it?.let { message ->
-                if (message == R.string.unauthorized_error_message){
-                    loginEmailTextInputLayout.error = " "
-                    loginPasswordTextInputLayout.error = getString(message)
-                } else {
-                    Snackbar.make(root, message, Snackbar.LENGTH_INDEFINITE)
-                        .setTextColor(Color.WHITE)
-                        .setActionTextColor(Color.WHITE)
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setBackgroundTint(Color.BLACK)
-                        .setAction(getString(R.string.ok)){}
-                        .show()
+        viewModel.errorMessage.observe(this@LoginActivity){ throwable ->
+            when(throwable){
+                is UnauthorizedException -> { loginEmailTextInputLayout.error = " "
+                    loginPasswordTextInputLayout.error = getString(R.string.unauthorized_error_message)
                 }
+                is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
+                is ServerErrorException -> showAlertDialog(R.string.server_connection_problems)
+                else -> showAlertDialog(R.string.generic_failure)
             }
         }
 

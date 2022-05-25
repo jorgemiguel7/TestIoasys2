@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.errorMessage.observe(this@MainActivity){ exception ->
             when(exception){
                 is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
-                else -> showAlertDialog(R.string.internet_connection_failure)
+                else -> showAlertDialog(R.string.generic_failure)
             }
         }
     }

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.result.Result
-import com.example.testioasys2.domain.repository.EnterpriseRepository
+import com.example.testioasys2.domain.repository.enterprise.EnterpriseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
