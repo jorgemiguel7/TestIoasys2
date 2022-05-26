@@ -19,9 +19,8 @@ import kotlin.coroutines.CoroutineContext
 class LoginViewModel(
     private val doLogin: DoLogin,
     private val validateUserEmail: ValidateUserEmail,
-    private val validateUserPassword: ValidateUserPassword,
     private val dispatcher: CoroutineContext = Dispatchers.IO
-): ViewModel(){
+) : ViewModel() {
     private val _success = MutableLiveData<UserSession>()
     val success: LiveData<UserSession> = _success
 
@@ -30,47 +29,33 @@ class LoginViewModel(
 
     private val _emailErrorMessage = MutableLiveData<Int?>()
     val emailErrorMessage: LiveData<Int?> = _emailErrorMessage
-    private val _passwordErrorMessage = MutableLiveData<Int?>()
-    val passwordErrorMessage: LiveData<Int?> = _passwordErrorMessage
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
-    fun login(user: User){
+    fun login(user: User) {
         viewModelScope.launch(dispatcher) {
-            val emailStatus = validateEmail(user)
-            val isPasswordValid = validatePassword(user)
+            validateEmail(user)
 
-            if (emailStatus == EmailStatus.VALID && isPasswordValid){
-                _loading.postValue(true)
-                when(val result = doLogin.call(user)){
-                    is Result.Success -> {
-                        _loading.postValue(false)
-                        _success.postValue(result.data)
-                    }
-                    is Result.Error -> {
-                        _loading.postValue(false)
-                        _errorMessage.postValue(result.exception)
-                    }
+            _loading.postValue(true)
+            when (val result = doLogin.call(user)) {
+                is Result.Success -> {
+                    _loading.postValue(false)
+                    _success.postValue(result.data)
+                }
+                is Result.Error -> {
+                    _loading.postValue(false)
+                    _errorMessage.postValue(result.exception)
                 }
             }
         }
 
     }
 
-    private fun validatePassword(user: User): Boolean {
-        val validPassword = validateUserPassword.call(user.password)
-        if (validPassword) _passwordErrorMessage.postValue(null)
-        else _passwordErrorMessage.postValue(R.string.login_fill_field)
-        return validPassword
-    }
-
-    private fun validateEmail(user: User): EmailStatus {
-        val emailStatus = validateUserEmail.call(user.email)
-        when(emailStatus){
+    private fun validateEmail(user: User){
+        when (validateUserEmail.call(user.email)) {
             EmailStatus.VALID -> _emailErrorMessage.postValue(null)
             EmailStatus.INVALID -> _emailErrorMessage.postValue(R.string.login_invalid_email)
             EmailStatus.BLANK -> _emailErrorMessage.postValue(R.string.login_fill_field)
         }
-        return emailStatus
     }
 }

@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.example.testioasys2.R
 import com.example.testioasys2.databinding.ActivityLoginBinding
-import com.example.testioasys2.domain.exception.NetworkErrorException
-import com.example.testioasys2.domain.exception.ServerErrorException
-import com.example.testioasys2.domain.exception.UnauthorizedException
+import com.example.testioasys2.domain.exception.*
 import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.ui.main.MainActivity
 import com.example.testioasys2.presentation.login.LoginViewModel
@@ -51,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
                 is UnauthorizedException -> { loginEmailTextInputLayout.error = " "
                     loginPasswordTextInputLayout.error = getString(R.string.unauthorized_error_message)
                 }
+                is InvalidPasswordException -> loginPasswordTextInputLayout.error = getString(R.string.login_fill_field)
                 is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
                 is ServerErrorException -> showAlertDialog(R.string.server_connection_problems)
                 else -> showAlertDialog(R.string.generic_failure)
@@ -59,10 +58,6 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.emailErrorMessage.observe(this@LoginActivity){ errorMessageId ->
             loginEmailTextInputLayout.error = errorMessageId?.let { getString(errorMessageId) }.orEmpty()
-        }
-
-        viewModel.passwordErrorMessage.observe(this@LoginActivity){ errorMessageId ->
-            loginPasswordTextInputLayout.error = errorMessageId?.let { getString(errorMessageId) }.orEmpty()
         }
 
         viewModel.loading.observe(this@LoginActivity){ isLoading ->
