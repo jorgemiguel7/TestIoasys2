@@ -29,13 +29,13 @@ val loginModule = module {
 
     }
 
-    single <DoLogin> { DoLoginImpl(get()) }
+    single <DoLogin> { DoLoginImpl(get(), get(), get()) }
     single <LoginRepository> { LoginRepositoryImpl(get()) }
     single <LoginApiDataSource> { LoginApiDataSourceImpl(get()) }
     single <ValidateUserEmail> { ValidateUserEmailImpl() }
     single <ValidateUserPassword> { ValidateUserPasswordImpl() }
 
     viewModel {
-        LoginViewModel(get(), get(), get())
+        LoginViewModel(get(), get())
     }
 }

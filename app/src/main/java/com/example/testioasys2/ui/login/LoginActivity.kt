@@ -9,69 +9,80 @@ import com.example.testioasys2.domain.exception.*
 import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.ui.main.MainActivity
 import com.example.testioasys2.presentation.login.LoginViewModel
-import com.example.testioasys2.utils.LoadingDialog
+import com.example.testioasys2.utils.createLoadingDialog
 import com.example.testioasys2.utils.showAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModel()
+    private val loadingDialog by lazy { createLoadingDialog() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        observer()
-        toSend()
+        setupObservers()
+        setupListener()
         clearErrorMessageFromTextInput()
     }
 
-    private fun toSend() = binding.apply{
-        loginEnterButton.setOnClickListener {
+    private fun setupListener() {
+        binding.loginEnterButton.setOnClickListener {
             viewModel.login(
                 User(
-                    loginEmailTextInputLayout.editText?.text?.toString().orEmpty(),
-                    loginPasswordTextInputLayout.editText?.text?.toString().orEmpty())
+                    binding.loginEmailTextInputLayout.editText?.text?.toString().orEmpty(),
+                    binding.loginPasswordTextInputLayout.editText?.text?.toString().orEmpty()
+                )
             )
         }
     }
 
-    private fun observer() = binding.apply {
-        viewModel.success.observe(this@LoginActivity){ session ->
-            val intent = MainActivity.getStartIntent(this@LoginActivity, session)
-            startActivity(intent)
-            finish()
-        }
-
-        viewModel.errorMessage.observe(this@LoginActivity){ throwable ->
-            when(throwable){
-                is UnauthorizedException -> { loginEmailTextInputLayout.error = " "
-                    loginPasswordTextInputLayout.error = getString(R.string.unauthorized_error_message)
-                }
-                is InvalidPasswordException -> loginPasswordTextInputLayout.error = getString(R.string.login_fill_field)
-                is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
-                is ServerErrorException -> showAlertDialog(R.string.server_connection_problems)
-                else -> showAlertDialog(R.string.generic_failure)
+    private fun setupObservers() {
+        binding.apply {
+            viewModel.loginSuccess.observe(this@LoginActivity) { session ->
+                val intent = MainActivity.getStartIntent(this@LoginActivity, session)
+                startActivity(intent)
+                finish()
             }
-        }
 
-        viewModel.emailErrorMessage.observe(this@LoginActivity){ errorMessageId ->
-            loginEmailTextInputLayout.error = errorMessageId?.let { getString(errorMessageId) }.orEmpty()
-        }
+            viewModel.loginErrorMessage.observe(this@LoginActivity) { throwable ->
+                when (throwable) {
+                    is UnauthorizedException -> {
+                        loginEmailTextInputLayout.error = " "
+                        loginPasswordTextInputLayout.error =
+                            getString(R.string.unauthorized_error_message)
+                    }
+                    is InvalidPasswordException -> loginPasswordTextInputLayout.error =
+                        getString(R.string.login_fill_field)
+//                    is InvalidLoginException -> loginEmailTextInputLayout.error = getString(R.string.login_invalid_email)
+                    is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
+                    is ServerErrorException -> showAlertDialog(R.string.server_connection_problems)
+                    else -> showAlertDialog(R.string.generic_failure)
+                }
+            }
 
-        viewModel.loading.observe(this@LoginActivity){ isLoading ->
-            if (isLoading)LoadingDialog.startLoading(this@LoginActivity)
-            else LoadingDialog.finishLoading()
+            viewModel.emailErrorMessage.observe(this@LoginActivity) { errorMessageId ->
+                loginEmailTextInputLayout.error =
+                    errorMessageId?.let { getString(errorMessageId) }.orEmpty()
+            }
+
+            viewModel.loading.observe(this@LoginActivity) { isLoading ->
+                if (isLoading) loadingDialog.show()
+                else loadingDialog.dismiss()
+            }
         }
     }
 
-    private fun clearErrorMessageFromTextInput() = binding.apply {
-        loginEmailTextInputLayout.editText?.doAfterTextChanged {
-            loginEmailTextInputLayout.error = ""
-        }
-        loginPasswordTextInputLayout.editText?.doAfterTextChanged {
-            loginPasswordTextInputLayout.error = ""
+    private fun clearErrorMessageFromTextInput() {
+        binding.apply {
+            loginEmailTextInputLayout.editText?.doAfterTextChanged {
+                loginEmailTextInputLayout.error = ""
+            }
+            loginPasswordTextInputLayout.editText?.doAfterTextChanged {
+                loginPasswordTextInputLayout.error = ""
+            }
         }
     }
 }

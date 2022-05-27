@@ -7,12 +7,24 @@
     android:background="@color/beige"
     tools:context=".ui.main.MainActivity">
 
-    <include
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
-        layout="@layout/include_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/mainToolbarImageView"
+            android:layout_width="118dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/ioasys_logo"
+            app:srcCompat="@drawable/logo_nav" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/mainGuidanceMessageTextView"
@@ -42,5 +54,26 @@
         app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_enterprise" />
+
+    <FrameLayout
+        android:id="@+id/mainLoadingFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/neon_red" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

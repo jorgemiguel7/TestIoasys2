@@ -35,6 +35,6 @@ val mainModule = module {
     single<EnterpriseApiDataSource> { EnterpriseApiDataSourceImpl(get()) }
 
     viewModel {
-        MainViewModel(enterpriseRepository = get())
+        MainViewModel(getEnterpriseList = get())
     }
 }

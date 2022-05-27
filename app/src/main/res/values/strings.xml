@@ -33,6 +33,6 @@
     <string name="error">ERRO</string>
     <string name="ok">OK</string>
     <string name="ioasys_logo">ioasys logo</string>
-    <string name="company_photo">company photo</string>
+    <string name="enterprise_photo_content_description">Foto da empresa</string>
 
 </resources>

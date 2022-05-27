@@ -17,7 +17,7 @@ class DetailsActivity : BaseActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupToolbar(binding.detailsToolbar.toolbar, intent.getStringExtra(EXTRA_NAME)!!, true)
+        setupToolbar(binding.detailsToolbar, intent.getStringExtra(EXTRA_NAME)!!, true)
         setDetails()
     }
 
@@ -26,7 +26,7 @@ class DetailsActivity : BaseActivity() {
         private const val EXTRA_PHOTO = "EXTRA_PHOTO"
         private const val EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION"
 
-        fun getStratIntent(context: Context, name: String, photo: String, description: String): Intent{
+        fun getStartIntent(context: Context, name: String, photo: String, description: String): Intent{
             return Intent(context, DetailsActivity::class.java).apply {
                 putExtra(EXTRA_NAME, name)
                 putExtra(EXTRA_PHOTO, photo)
@@ -35,10 +35,10 @@ class DetailsActivity : BaseActivity() {
         }
     }
 
-    private fun setDetails() = binding.apply{
+    private fun setDetails() {
         Glide.with(this@DetailsActivity).load(Constants.PHOTO_BASE_URL
             .plus(intent.getStringExtra(EXTRA_PHOTO)))
-            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(detailsPhoto)
-        detailsDescription.text = intent.getStringExtra(EXTRA_DESCRIPTION)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).into(binding.detailsPhotoImageView)
+        binding.detailsDescriptionTextView.text = intent.getStringExtra(EXTRA_DESCRIPTION)
     }
 }

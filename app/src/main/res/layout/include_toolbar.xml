@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_background">
 
     <ImageView
-        android:id="@+id/includeImageToolbar"
+        android:id="@+id/mainToolbarImageView"
         android:layout_width="118dp"
         android:layout_height="58dp"
         android:layout_gravity="center"

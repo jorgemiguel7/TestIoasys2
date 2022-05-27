@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_report_image"
-        android:contentDescription="@string/company_photo" />
+        android:contentDescription="@string/enterprise_photo_content_description" />
 
     <TextView
         android:id="@+id/itemEnterpriseNameTextView"
@@ -47,7 +47,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp"
-        android:textColor="#757575"
+        android:textColor="@color/grey"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="12dp"
-        android:textColor="#757575"
+        android:textColor="@color/grey"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"

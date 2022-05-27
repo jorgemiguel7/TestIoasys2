@@ -16,24 +16,24 @@ class MainViewModel(
     private val getEnterpriseList: GetEnterpriseList,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ): ViewModel() {
-    private val _success = MutableLiveData<List<Enterprise>>()
-    val success: LiveData<List<Enterprise>> = _success
-    private val _errorMessage = MutableLiveData<Throwable>()
-    val errorMessage: LiveData<Throwable> = _errorMessage
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean> = _loading
+    private val _getEnterpriseSuccess = MutableLiveData<List<Enterprise>>()
+    val getEnterpriseSuccess: LiveData<List<Enterprise>> = _getEnterpriseSuccess
+    private val _getEnterpriseErrorMessage = MutableLiveData<Throwable>()
+    val getEnterpriseErrorMessage: LiveData<Throwable> = _getEnterpriseErrorMessage
+    private val _searchLoad = MutableLiveData<Boolean>()
+    val searchLoad: LiveData<Boolean> = _searchLoad
 
     fun getEnterprise(name: String?, userSession: UserSession){
         viewModelScope.launch(dispatcher) {
-            _loading.postValue(true)
+            _searchLoad.postValue(true)
             when(val result = getEnterpriseList.call(name, userSession)){
                 is Result.Success -> {
-                    _loading.postValue(false)
-                    _success.postValue(result.data)
+                    _searchLoad.postValue(false)
+                    _getEnterpriseSuccess.postValue(result.data)
                 }
                 is Result.Error -> {
-                    _loading.postValue(false)
-                    _errorMessage.postValue(result.exception)
+                    _searchLoad.postValue(false)
+                    _getEnterpriseErrorMessage.postValue(result.exception)
                 }
             }
         }

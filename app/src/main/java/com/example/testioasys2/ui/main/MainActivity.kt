@@ -18,7 +18,6 @@ import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.databinding.ActivityMainBinding
 import com.example.testioasys2.ui.adapter.EnterpriseListAdapter
 import com.example.testioasys2.ui.details.DetailsActivity
-import com.example.testioasys2.utils.LoadingDialog
 import com.example.testioasys2.utils.showAlertDialog
 import com.example.testioasys2.presentation.main.MainViewModel
 import com.example.testioasys2.utils.onQueryTextChange
@@ -38,28 +37,31 @@ class MainActivity : AppCompatActivity() {
         connectionError()
     }
 
-    companion object{
+    companion object {
         private const val USER_SESSION_EXTRA = "USER_SESSION_EXTRA"
 
-        fun getStartIntent(context: Context, userSession: UserSession): Intent{
-            return Intent(context, MainActivity::class.java).putExtra(USER_SESSION_EXTRA, userSession)
+        fun getStartIntent(context: Context, userSession: UserSession): Intent {
+            return Intent(context, MainActivity::class.java).putExtra(
+                USER_SESSION_EXTRA,
+                userSession
+            )
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         searchInActionBar(menu)
-        return true
+        return super.onCreateOptionsMenu(menu)
     }
 
-    private fun setToolbar(){
-        setSupportActionBar(binding.mainToolbar.toolbar)
+    private fun setToolbar() {
+        setSupportActionBar(binding.mainToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    private fun searchInActionBar(menu: Menu?) = binding.apply {
-        val menuItem: MenuItem = menu!!.findItem(R.id.menuSearch)
-        val searchView: SearchView = menuItem.actionView as SearchView
+    private fun searchInActionBar(menu: Menu?){
+        val menuItem: MenuItem? = menu?.findItem(R.id.menuSearch)
+        val searchView: SearchView = menuItem?.actionView as SearchView
 
         searchView.queryHint = getString(R.string.main_search)
         searchView.onQueryTextChange {
@@ -67,51 +69,59 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getEnterpriseList(newText: String) = binding.apply{
-        if (newText.isNotEmpty()){
-            mainGuidanceMessageTextView.isGone = true
-            mainRecyclerView.isVisible = true
-            val accessToken = intent.getSerializableExtra(USER_SESSION_EXTRA) as UserSession
-            viewModel.getEnterprise(newText, userSession = accessToken)
-        } else mainRecyclerView.isGone = true
-
+    private fun getEnterpriseList(newText: String) {
+        binding.apply {
+            if (newText.isNotEmpty()) {
+                mainGuidanceMessageTextView.isGone = true
+                mainRecyclerView.isVisible = true
+                val accessToken = intent.getSerializableExtra(USER_SESSION_EXTRA) as UserSession
+                viewModel.getEnterprise(newText, userSession = accessToken)
+            } else mainRecyclerView.isGone = true
+        }
     }
 
-    private fun setRecyclerView() = binding.apply{
-        viewModel.success.observe(this@MainActivity){
-            it?.let { enterprises ->
+    private fun setRecyclerView() {
+        viewModel.getEnterpriseSuccess.observe(this@MainActivity) { enterprises ->
+            enterprises?.let {
                 displaySearchResult(enterprises)
-                with(mainRecyclerView){
-                    layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+                with(binding.mainRecyclerView) {
+                    layoutManager =
+                        LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = EnterpriseListAdapter(enterprises){ enterprise ->
-                        val intent = DetailsActivity.getStratIntent(this@MainActivity, enterprise.name, enterprise.photo, enterprise.description)
+                    adapter = EnterpriseListAdapter(enterprises) { enterprise ->
+                        val intent = DetailsActivity.getStartIntent(
+                            this@MainActivity,
+                            enterprise.name,
+                            enterprise.photo,
+                            enterprise.description
+                        )
                         startActivity(intent)
                     }
                 }
             }
         }
 
-        viewModel.loading.observe(this@MainActivity){ isLoading ->
-            if (isLoading) LoadingDialog.startLoading(this@MainActivity)
-            else LoadingDialog.finishLoading()
+        viewModel.searchLoad.observe(this@MainActivity) { isLoading ->
+            binding.mainLoadingFrameLayout.isVisible = isLoading
         }
     }
 
-    private fun displaySearchResult(enterprises: List<Enterprise>) = binding.apply {
-        if (enterprises.isNotEmpty()){
-            mainGuidanceMessageTextView.isGone = true
-            mainRecyclerView.isVisible = true
-        } else {
-            mainRecyclerView.isGone = true
-            mainGuidanceMessageTextView.text = getString(R.string.main_search_not_found)
-            mainGuidanceMessageTextView.isVisible = true
+    private fun displaySearchResult(enterprises: List<Enterprise>) {
+        binding.apply {
+            if (enterprises.isNotEmpty()) {
+                mainGuidanceMessageTextView.isGone = true
+                mainRecyclerView.isVisible = true
+            } else {
+                mainRecyclerView.isGone = true
+                mainGuidanceMessageTextView.text = getString(R.string.main_search_not_found)
+                mainGuidanceMessageTextView.isVisible = true
+            }
         }
     }
 
-    private fun connectionError() = binding.apply{
-        viewModel.errorMessage.observe(this@MainActivity){ exception ->
-            when(exception){
+    private fun connectionError() {
+        viewModel.getEnterpriseErrorMessage.observe(this@MainActivity) { exception ->
+            when (exception) {
                 is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
                 else -> showAlertDialog(R.string.generic_failure)
             }
