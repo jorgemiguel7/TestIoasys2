@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    private fun searchInActionBar(menu: Menu?){
+    private fun searchInActionBar(menu: Menu?) {
         val menuItem: MenuItem? = menu?.findItem(R.id.menuSearch)
         val searchView: SearchView = menuItem?.actionView as SearchView
 
@@ -82,23 +82,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun setRecyclerView() {
         viewModel.getEnterpriseSuccess.observe(this@MainActivity) { enterprises ->
-            enterprises?.let {
-                displaySearchResult(enterprises)
-                with(binding.mainRecyclerView) {
-                    layoutManager =
-                        LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-                    setHasFixedSize(true)
-                    adapter = EnterpriseListAdapter(enterprises) { enterprise ->
-                        val intent = DetailsActivity.getStartIntent(
-                            this@MainActivity,
-                            enterprise.name,
-                            enterprise.photo,
-                            enterprise.description
-                        )
-                        startActivity(intent)
-                    }
+            displaySearchResult(enterprises)
+            with(binding.mainRecyclerView) {
+                layoutManager =
+                    LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+                setHasFixedSize(true)
+                adapter = EnterpriseListAdapter(enterprises) { enterprise ->
+                    val intent = DetailsActivity.getStartIntent(
+                        this@MainActivity,
+                        enterprise.name,
+                        enterprise.photo,
+                        enterprise.description
+                    )
+                    startActivity(intent)
                 }
             }
+
         }
 
         viewModel.searchLoad.observe(this@MainActivity) { isLoading ->

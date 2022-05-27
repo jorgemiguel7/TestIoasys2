@@ -36,6 +36,6 @@ val loginModule = module {
     single <ValidateUserPassword> { ValidateUserPasswordImpl() }
 
     viewModel {
-        LoginViewModel(get(), get())
+        LoginViewModel(get(), get(), get())
     }
 }

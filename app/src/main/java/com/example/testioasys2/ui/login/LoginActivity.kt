@@ -54,13 +54,15 @@ class LoginActivity : AppCompatActivity() {
                         loginPasswordTextInputLayout.error =
                             getString(R.string.unauthorized_error_message)
                     }
-                    is InvalidPasswordException -> loginPasswordTextInputLayout.error =
-                        getString(R.string.login_fill_field)
-//                    is InvalidLoginException -> loginEmailTextInputLayout.error = getString(R.string.login_invalid_email)
+                    is InvalidLoginException -> loginEmailTextInputLayout.error = getString(R.string.login_invalid_email)
                     is NetworkErrorException -> showAlertDialog(R.string.internet_connection_failure)
                     is ServerErrorException -> showAlertDialog(R.string.server_connection_problems)
                     else -> showAlertDialog(R.string.generic_failure)
                 }
+            }
+
+            viewModel.passwordErrorMessage.observe(this@LoginActivity){ errorMessageId ->
+                loginPasswordTextInputLayout.error = errorMessageId?.let { getString(errorMessageId) }.orEmpty()
             }
 
             viewModel.emailErrorMessage.observe(this@LoginActivity) { errorMessageId ->
