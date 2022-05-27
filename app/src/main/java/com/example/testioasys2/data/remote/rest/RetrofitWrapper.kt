@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.rest
+package com.example.testioasys2.data.remote.rest
 
 import com.example.testioasys2.domain.exception.GenericErrorException
 import com.example.testioasys2.domain.exception.NetworkErrorException

@@ -1,4 +1,4 @@
-package com.example.testioasys2.data.rest
+package com.example.testioasys2.data.remote.rest
 
 import com.example.testioasys2.data.remote.login.model.UserRequest
 import okhttp3.ResponseBody

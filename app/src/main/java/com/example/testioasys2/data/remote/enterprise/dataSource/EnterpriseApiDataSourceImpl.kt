@@ -1,8 +1,8 @@
 package com.example.testioasys2.data.remote.enterprise.dataSource
 
 import com.example.testioasys2.data.remote.enterprise.mapper.toDomain
-import com.example.testioasys2.data.rest.EnterpriseService
-import com.example.testioasys2.data.rest.retrofitWrapper
+import com.example.testioasys2.data.remote.rest.EnterpriseService
+import com.example.testioasys2.data.remote.rest.retrofitWrapper
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.result.Result

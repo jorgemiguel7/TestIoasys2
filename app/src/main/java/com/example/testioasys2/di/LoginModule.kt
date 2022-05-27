@@ -4,7 +4,7 @@ import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSource
 import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSourceImpl
 import com.example.testioasys2.domain.repository.login.LoginRepository
 import com.example.testioasys2.data.repository.login.LoginRepositoryImpl
-import com.example.testioasys2.data.rest.LoginService
+import com.example.testioasys2.data.remote.rest.LoginService
 import com.example.testioasys2.domain.use_case.*
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.presentation.login.LoginViewModel

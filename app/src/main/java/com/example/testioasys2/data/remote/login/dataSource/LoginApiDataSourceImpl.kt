@@ -2,8 +2,8 @@ package com.example.testioasys2.data.remote.login.dataSource
 
 import com.example.testioasys2.data.remote.login.mapper.toUserSession
 import com.example.testioasys2.data.remote.login.model.UserRequest
-import com.example.testioasys2.data.rest.LoginService
-import com.example.testioasys2.data.rest.retrofitWrapper
+import com.example.testioasys2.data.remote.rest.LoginService
+import com.example.testioasys2.data.remote.rest.retrofitWrapper
 import com.example.testioasys2.domain.exception.ServerErrorException
 import com.example.testioasys2.domain.exception.UnauthorizedException
 import com.example.testioasys2.domain.model.User
