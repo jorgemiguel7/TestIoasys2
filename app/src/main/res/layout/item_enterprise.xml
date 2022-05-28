@@ -1,74 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
     android:background="@color/white"
-    android:elevation="2dp">
+    android:elevation="2dp"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="2dp">
 
-    <ImageView
-        android:id="@+id/itemEnterpriseImageView"
-        android:layout_width="106dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_report_image"
-        android:contentDescription="@string/enterprise_photo_content_description" />
-
-    <TextView
-        android:id="@+id/itemEnterpriseNameTextView"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_bold"
-        android:maxLines="1"
-        android:textAlignment="textStart"
-        android:textColor="@color/dark_indigo"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/item_enterprise_name" />
+        android:background="@color/white">
 
-    <TextView
-        android:id="@+id/itemEnterpriseTypeTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/roboto_italic"
-        android:textColor="@color/grey"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
-        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameTextView"
-        tools:text="@string/item_enterprise_type" />
+        <ImageView
+            android:id="@+id/itemEnterpriseImageView"
+            android:layout_width="106dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/enterprise_photo_content_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_report_image" />
 
-    <TextView
-        android:id="@+id/itemEnterpriseCityTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/grey"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
-        app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeTextView"
-        tools:text="@string/item_enterprise_country" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/itemEnterpriseNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:maxLines="1"
+            android:textAlignment="textStart"
+            android:textColor="@color/dark_indigo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/item_enterprise_name" />
+
+        <TextView
+            android:id="@+id/itemEnterpriseTypeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/roboto_italic"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
+            app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameTextView"
+            tools:text="@string/item_enterprise_type" />
+
+        <TextView
+            android:id="@+id/itemEnterpriseCityTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
+            app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeTextView"
+            tools:text="@string/item_enterprise_country" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
