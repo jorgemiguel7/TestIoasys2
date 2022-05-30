@@ -6,16 +6,27 @@ App do desafio da empresa ioasys (https://bitbucket.org/ioasys/empresas-android/
 
 3. Tela de descrição de uma empresa: Nessa tela são exibidos em detalhe as informações de uma empresa clicada na lista da tela anterior.
 
+#
+
 Principais bibliotecas utilizadas:
 
 - Gerenciamento de estado: ViewModel, Coroutines
 - Requisições api REST: Retrofit
 - Download de imagens: Glide
 - Injeção de dependência: Koin
+- Testes unitários: JUnit4 e Mockk
+
+#
 
 <p align="ligth">
-  <img src="https://user-images.githubusercontent.com/99301401/164817633-128ed6cd-de60-42a4-a09b-00d3efef4768.png" width="250px"/>
-  <img src="https://user-images.githubusercontent.com/99301401/164817637-2719355a-47cb-4771-93bb-011ae36edd6f.png" width="250px"/>
-  <img src="https://user-images.githubusercontent.com/99301401/164817639-0066d5dc-71b7-467c-989e-4481acce8c90.png" width="250px"/>
-  <img src="https://user-images.githubusercontent.com/99301401/164817641-e485c828-a628-4947-aba4-7ccbd4618bf2.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170917952-a513c54b-7670-4f8f-b513-724919a910d7.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918506-e9537790-442d-4abc-982c-514ea31187cb.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918608-af4126fd-50fc-4701-93c8-a63a3a7d787c.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918799-a6eb2000-5042-4b5a-950a-ff4b273f7def.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918878-6a744daa-d75e-4d7d-9680-649ce0cce088.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918892-1b35dcae-8d6f-42e4-b3f8-50cf667d0551.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918909-19859c3b-17fb-4baa-a04f-4a68112052d9.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918934-85705405-dd43-47aa-996a-da7881c4d0f2.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170918950-2b83de8c-0e5c-42ec-9062-8cc74861d7be.png" width="250px"/>
+  <img src="https://user-images.githubusercontent.com/99301401/170919291-5cda8afc-d4bf-4e11-adc9-15e8be266fb9.gif" width="250px"/>
 </p>
