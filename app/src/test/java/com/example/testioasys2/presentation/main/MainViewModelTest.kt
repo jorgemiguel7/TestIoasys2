@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.result.Result
-import com.example.testioasys2.domain.use_case.GetEnterpriseList
+import com.example.testioasys2.domain.useCase.GetEnterpriseList
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

@@ -2,6 +2,7 @@ package com.example.testioasys2.data.remote.login.dataSource
 
 import com.example.testioasys2.data.remote.login.mapper.toUserSession
 import com.example.testioasys2.data.remote.rest.LoginService
+import com.example.testioasys2.domain.exception.NetworkErrorException
 import com.example.testioasys2.domain.exception.ServerErrorException
 import com.example.testioasys2.domain.exception.UnauthorizedException
 import com.example.testioasys2.domain.model.User
@@ -20,6 +21,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Response
+import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class LoginApiDataSourceImplTest {
@@ -83,5 +85,18 @@ class LoginApiDataSourceImplTest {
         val result = loginApiDataSourceImpl.doLogin(user)
 
         assertTrue(result is Result.Error && result.exception is ServerErrorException)
+    }
+
+    @Test
+    fun `GIVEN a call to doLogin WHEN the service returns an error THEN it returns an error`() = runBlockingTest {
+        val email = "nada@gmail.com"
+        val password = "12341234"
+        val user = User(email, password)
+
+        coEvery { service.doLogin(any()) } throws IOException()
+
+        val result = loginApiDataSourceImpl.doLogin(user)
+
+        assertTrue(result is Result.Error && result.exception is NetworkErrorException)
     }
 }

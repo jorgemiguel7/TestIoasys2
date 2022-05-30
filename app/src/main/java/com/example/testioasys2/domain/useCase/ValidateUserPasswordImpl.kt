@@ -1,4 +1,4 @@
-package com.example.testioasys2.domain.use_case
+package com.example.testioasys2.domain.useCase
 
 class ValidateUserPasswordImpl: ValidateUserPassword {
     override fun call(password: String): Boolean {

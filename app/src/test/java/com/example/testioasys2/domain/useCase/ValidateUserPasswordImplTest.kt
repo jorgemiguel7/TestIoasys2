@@ -1,4 +1,4 @@
-package com.example.testioasys2.domain.use_case
+package com.example.testioasys2.domain.useCase
 
 import io.mockk.clearAllMocks
 import org.junit.After

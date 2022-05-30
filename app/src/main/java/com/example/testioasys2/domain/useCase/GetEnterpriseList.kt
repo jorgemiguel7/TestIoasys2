@@ -1,4 +1,4 @@
-package com.example.testioasys2.domain.use_case
+package com.example.testioasys2.domain.useCase
 
 import com.example.testioasys2.domain.enterprise.Enterprise
 import com.example.testioasys2.domain.model.UserSession

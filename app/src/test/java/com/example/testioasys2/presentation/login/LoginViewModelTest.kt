@@ -5,9 +5,9 @@ import com.example.testioasys2.domain.model.EmailStatus
 import com.example.testioasys2.domain.model.User
 import com.example.testioasys2.domain.model.UserSession
 import com.example.testioasys2.domain.result.Result
-import com.example.testioasys2.domain.use_case.DoLogin
-import com.example.testioasys2.domain.use_case.ValidateUserEmail
-import com.example.testioasys2.domain.use_case.ValidateUserPassword
+import com.example.testioasys2.domain.useCase.DoLogin
+import com.example.testioasys2.domain.useCase.ValidateUserEmail
+import com.example.testioasys2.domain.useCase.ValidateUserPassword
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

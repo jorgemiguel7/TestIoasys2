@@ -1,14 +1,12 @@
 package com.example.testioasys2.di
 
 import android.util.Patterns
-import android.util.Patterns.EMAIL_ADDRESS
-import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSource
 import com.example.testioasys2.data.remote.login.dataSource.LoginApiDataSourceImpl
 import com.example.testioasys2.domain.repository.login.LoginRepository
 import com.example.testioasys2.data.repository.login.LoginRepositoryImpl
 import com.example.testioasys2.data.remote.rest.LoginService
-import com.example.testioasys2.domain.use_case.*
+import com.example.testioasys2.domain.useCase.*
 import com.example.testioasys2.utils.Constants
 import com.example.testioasys2.presentation.login.LoginViewModel
 import okhttp3.OkHttpClient
@@ -17,7 +15,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.regex.Pattern
 
 val loginModule = module {
     single<LoginService> {
