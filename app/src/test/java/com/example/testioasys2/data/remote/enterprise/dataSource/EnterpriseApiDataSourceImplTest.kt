@@ -56,10 +56,10 @@ class EnterpriseApiDataSourceImplTest {
 
     @Test
     fun `GIVEN a call on getEnterprises WHEN service returns unauthorized code THEN return mapped response`() = runBlockingTest {
-        val name = "peixinho"
-        val accessToken = "wdioaodwaid"
-        val client = "aowidnaoiwd"
-        val uid = "wpdoapowdakd"
+        val name = "test"
+        val accessToken = "test"
+        val client = "test"
+        val uid = "test"
         val userSession = UserSession(accessToken, client, uid)
         val enterpriseResultResponse = EnterpriseResultResponse(
             enterprises = listOf(mockk(relaxed = true), mockk(relaxed = true))
@@ -75,10 +75,10 @@ class EnterpriseApiDataSourceImplTest {
 
     @Test
     fun `GIVEN a call on getEnterprises WHEN service returns error THEN return error`() = runBlockingTest {
-        val name = "peixinho"
-        val accessToken = "wdioaodwaid"
-        val client = "aowidnaoiwd"
-        val uid = "wpdoapowdakd"
+        val name = "test"
+        val accessToken = "test"
+        val client = "test"
+        val uid = "test"
         val userSession = UserSession(accessToken, client, uid)
 
         coEvery { service.getEnterprises(any(), any(), any(), any()) } throws IOException()

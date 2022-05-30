@@ -9,12 +9,14 @@ import com.example.testioasys2.domain.result.Result
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class DoLoginImplTest{
     private val validateUserEmail: ValidateUserEmail = mockk()
     private val validateUserPassword: ValidateUserPassword = mockk()
