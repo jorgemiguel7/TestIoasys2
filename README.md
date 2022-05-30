@@ -30,3 +30,4 @@ Principais bibliotecas utilizadas:
   <img src="https://user-images.githubusercontent.com/99301401/170918950-2b83de8c-0e5c-42ec-9062-8cc74861d7be.png" width="250px"/>
   <img src="https://user-images.githubusercontent.com/99301401/170919291-5cda8afc-d4bf-4e11-adc9-15e8be266fb9.gif" width="250px"/>
 </p>
+
