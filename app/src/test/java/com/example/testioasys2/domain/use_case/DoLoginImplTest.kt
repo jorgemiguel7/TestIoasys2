@@ -10,7 +10,7 @@ import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -35,7 +35,7 @@ class DoLoginImplTest{
     }
 
     @Test
-    fun `WHEN email and password are valid THEN return repository result`() = runBlocking{
+    fun `WHEN email and password are valid THEN return repository result`() = runBlockingTest{
         val user = User("test@gmail.com", "1234")
         val expected = Result.Success(mockk<UserSession>())
 
@@ -49,7 +49,7 @@ class DoLoginImplTest{
     }
 
     @Test
-    fun `WHEN email is invalid and password valid THEN return invalid login exception`() = runBlocking{
+    fun `WHEN email is invalid and password valid THEN return invalid login exception`() = runBlockingTest{
         val user = User("test@gmail.com", "1234")
         val expected = Result.Error(InvalidLoginException)
 
@@ -63,7 +63,7 @@ class DoLoginImplTest{
     }
 
     @Test
-    fun `WHEN the email is valid and the password is invalid THEN return invalid login exception`() = runBlocking{
+    fun `WHEN the email is valid and the password is invalid THEN return invalid login exception`() = runBlockingTest{
         val user = User("test@gmail.com", "1234")
         val expected = Result.Error(InvalidLoginException)
 

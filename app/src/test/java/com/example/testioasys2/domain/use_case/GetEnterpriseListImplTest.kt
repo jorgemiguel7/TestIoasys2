@@ -9,7 +9,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -31,7 +31,7 @@ class GetEnterpriseListImplTest{
     }
 
     @Test
-    fun `WHEN is called THEN it should return repository result`() = runBlocking {
+    fun `WHEN is called THEN it should return repository result`() = runBlockingTest {
         val name = "test"
         val accessToken = "test"
         val client = "test"
