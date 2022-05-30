@@ -38,7 +38,7 @@ class MainViewModelTest {
 
     @Test
     fun `GIVEN a call on getEnterprise WHEN use case return success THEN post success data on getEnterpriseSuccess liveData`() {
-        val name = "ent"
+        val name = "test"
         val userSession = mockk<UserSession>()
         val expected = mockk<List<Enterprise>>()
 
@@ -53,7 +53,7 @@ class MainViewModelTest {
 
     @Test
     fun `GIVEN a call on getEnterprise WHEN use case return error THEN post error on getEnterpriseErrorMessage liveData`() {
-        val name = "ent"
+        val name = "test"
         val userSession = mockk<UserSession>()
         val expected = mockk<Exception>()
 
