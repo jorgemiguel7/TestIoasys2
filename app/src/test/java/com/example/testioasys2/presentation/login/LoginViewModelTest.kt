@@ -72,8 +72,8 @@ class LoginViewModelTest{
     }
 
     @Test
-    fun `GIVEN a call on login WHEN the email is different from valid and password true THEN the use case will not be called`(){
-        val user = User("test@gmail.com", "1234")
+    fun `GIVEN a call on login WHEN the email is different from valid and password is valid THEN the use case will not be called`(){
+        val user = User("test", "1234")
 
         coEvery { validateUserEmail.call(any()) } returns EmailStatus.INVALID
         coEvery { validateUserPassword.call(any()) } returns true
@@ -84,7 +84,7 @@ class LoginViewModelTest{
     }
 
     @Test
-    fun `GIVEN a call on login WHEN the email is valid and the password is false THEN the use case will not be called`(){
+    fun `GIVEN a call on login WHEN the email is valid and the password is not valid false THEN the use case will not be called`(){
         val user = User("test@gmail.com", "1234")
 
         coEvery { validateUserEmail.call(any()) } returns EmailStatus.VALID

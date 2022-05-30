@@ -30,7 +30,7 @@ class LoginRepositoryImplTest{
     }
 
     @Test
-    fun `GIVEN a call to doLogin THEN return apiDataSource`() = runBlockingTest{
+    fun `GIVEN a call to doLogin THEN return apiDataSource result`() = runBlockingTest{
         val user = mockk<User>()
         val expected = mockk<Result<UserSession>>()
 

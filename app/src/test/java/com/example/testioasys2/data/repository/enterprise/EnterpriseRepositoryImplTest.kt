@@ -31,7 +31,7 @@ class EnterpriseRepositoryImplTest{
     }
 
     @Test
-    fun `GIVEN a call to getEnterprise THEN return apiDataSource`() = runBlockingTest{
+    fun `GIVEN a call to getEnterprises THEN return apiDataSource result`() = runBlockingTest{
         val name = "test"
         val userSession = UserSession("test", "test", "test")
         val expected = mockk<Result<List<Enterprise>>>()
