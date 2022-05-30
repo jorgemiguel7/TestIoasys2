@@ -16,6 +16,8 @@ Principais bibliotecas utilizadas:
 - Injeção de dependência: Koin
 - Testes unitários: JUnit4 e Mockk
 
+Obs: Na arquitetura do projeto foi utilizado Clean Architecture com MVVM.
+
 #
 
 <p align="ligth">
