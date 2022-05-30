@@ -6,6 +6,7 @@ import com.example.testioasys2.domain.repository.enterprise.EnterpriseRepository
 import com.example.testioasys2.domain.result.Result
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -30,7 +31,7 @@ class GetEnterpriseListImplTest{
     }
 
     @Test
-    fun `WHEN the call function is called THEN it should return a list of enterprise`() = runBlocking {
+    fun `WHEN is called THEN it should return repository result`() = runBlocking {
         val name = "test"
         val accessToken = "test"
         val client = "test"
@@ -40,10 +41,11 @@ class GetEnterpriseListImplTest{
         val enterprise = listOf<Enterprise>(mockk(relaxed = true))
         val expected = Result.Success(enterprise)
 
-        coEvery { enterpriseRepository.getEnterprises(name, userSession) } returns expected
+        coEvery { enterpriseRepository.getEnterprises(any(), any()) } returns expected
 
         val result = getEnterpriseListImpl.call(name, userSession)
 
+        coVerify(exactly = 1) { enterpriseRepository.getEnterprises(name, userSession) }
         assertEquals(expected, result)
     }
 }

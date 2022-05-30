@@ -21,10 +21,8 @@ import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class EnterpriseApiDataSourceImplTest {
-    //Passo 1: Criar mocks de tudo que nao for da sua classe
-    private val service: EnterpriseService = mockk()
 
-    //Passo 2: Criar a instancia da classe de teste
+    private val service: EnterpriseService = mockk()
     private lateinit var enterpriseApiDataSourceImpl: EnterpriseApiDataSourceImpl
 
     @Before
@@ -39,10 +37,11 @@ class EnterpriseApiDataSourceImplTest {
 
     @Test
     fun `GIVEN a call on getEnterprises THEN call service with correct params`() = runBlockingTest {
-        val name = "peixinho"
-        val accessToken = "wdioaodwaid"
-        val client = "aowidnaoiwd"
-        val uid = "wpdoapowdakd"
+        val name = "test"
+        val accessToken = "test"
+        val client = "test"
+        val uid = "test"
+        val enterprise = "test"
         val userSession = UserSession(accessToken, client, uid)
         val enterpriseResultResponse = EnterpriseResultResponse(
             enterprises = listOf(mockk(relaxed = true), mockk(relaxed = true))
@@ -52,7 +51,7 @@ class EnterpriseApiDataSourceImplTest {
 
         enterpriseApiDataSourceImpl.getEnterprises(name, userSession)
 
-        coVerify(exactly = 1) { service.getEnterprises(name, client, uid, name) }
+        coVerify(exactly = 1) { service.getEnterprises(name, client, uid, enterprise) }
     }
 
     @Test
