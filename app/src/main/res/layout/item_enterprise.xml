@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/item_enterprise_name" />
+            tools:text="Enterprise" />
 
         <TextView
             android:id="@+id/itemEnterpriseTypeTextView"
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
             app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameTextView"
-            tools:text="@string/item_enterprise_type" />
+            tools:text="type" />
 
         <TextView
             android:id="@+id/itemEnterpriseCityTextView"
@@ -77,7 +77,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
             app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeTextView"
-            tools:text="@string/item_enterprise_country" />
+            tools:text="country" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

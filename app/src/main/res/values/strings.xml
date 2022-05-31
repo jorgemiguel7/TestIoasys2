@@ -16,15 +16,6 @@
     <string name="main_http_401_Unauthorized">HTTP 401 Unauthorized</string>
     <string name="main_search_not_found">Nenhuma empresa foi encontrada para a busca realizada.</string>
 
-    <!-- Item Enterprise Layout -->
-    <string name="item_enterprise_name">Empresa</string>
-    <string name="item_enterprise_type">Negócio</string>
-    <string name="item_enterprise_country">País</string>
-
-    <!-- Details Activity -->
-    <string name="details_description">description</string>
-    <string name="details_enterprise_photo">enterprisePhoto</string>
-
     <!-- Global -->
     <string name="internet_connection_failure">Sem conexão com a internet</string>
     <string name="server_connection_problems">Problemas de conexão com o servidor</string>
@@ -34,5 +25,6 @@
     <string name="ok">OK</string>
     <string name="ioasys_logo">ioasys logo</string>
     <string name="enterprise_photo_content_description">Foto da empresa</string>
+    <string name="action_back_content_description">Voltar</string>
 
 </resources>
